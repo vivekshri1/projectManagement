@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout:: header"></head>
+<nav th:replace="layout:: navbar"></nav>
+<body>
+
+<div class="container">
+    <h4>Main Dashboard</h4>
+    <a th:text="${versionNumber}"></a>
+    <hr>
+<h4> Current Projects </h4>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+    <tr>
+        <th>Project Name</th>
+        <th>Project Stage</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+     <tr th:each="aProjects:${projectList}">
+        <td th:text="${aProjects.name}"/>
+        <td th:text="${aProjects.stage}"/>
+         <td th:text="${aProjects.description}"></td>
+    </tr>
+    </tbody>
+</table>
+        </div>
+        <div class="col-md-4">
+            <canvas id="myPieChart" height="50" width="50"></canvas>
+            <script>
+                var chartData="[[${projectStatusCntCount}]]"
+            </script>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h4> Current Employee </h4>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Project Count</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="aEmployeeProjectCnt:${employeeProjectCount}">
+            <td th:text="${aEmployeeProjectCnt.firstName}"/>
+            <td th:text="${aEmployeeProjectCnt.lastName}"/>
+            <td th:text="${aEmployeeProjectCnt.ProjectCount}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{myChart.js}"></script>
+</body>
+</html>
