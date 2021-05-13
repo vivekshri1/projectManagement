@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.jrp.pma.Util.LoggerUtil.log;
+import static com.jrp.pma.util.LoggerUtil.log;
 
 @Controller
 public class HomeController {

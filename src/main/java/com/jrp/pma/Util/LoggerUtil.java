@@ -1,4 +1,4 @@
-package com.jrp.pma.Util;
+package com.jrp.pma.util;
 
 public  class LoggerUtil {
     public static void log(String msg){
